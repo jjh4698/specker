@@ -292,11 +292,12 @@ ul.dropdown-menu {
    text-align: center;
     font-family:  helvetica, arial;
     color: #00d6b2;
-    font-size:15px;
+    font-size:12px;
     font-weight: bold;
-    padding: 20px;
+    padding: 8px;
     border-radius: 10px;
     letter-spacing: 3px;
+    background-color: ghostwhite;
 
 }
 .launch-header-logo{
@@ -309,6 +310,7 @@ ul.dropdown-menu {
     background-color:white;
     line-height: 2px;
     border-top: solid #FFFFFF;
+    margin-top:40px;
 }
 
 .launch-header-btn{

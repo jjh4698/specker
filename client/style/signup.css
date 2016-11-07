@@ -44,7 +44,7 @@
 
 .SignUp-Line{
     border-top: solid  #ffffff;
-    width: 12%;
+    width: 135px;
     margin-left: 10%;
     margin-bottom: 20px;
  }
@@ -57,6 +57,7 @@
     height: 50%;
     padding: 10px;
     font-size: 20px;
+    border-radius: 5px;
 }
 
 .SignUp-letter{
@@ -75,6 +76,7 @@
     padding: 5px;
     font-size: 15px;
     margin-left: 20%;
+    margin-top: 2%;
 }
 
 .next-button-false{
@@ -117,6 +119,13 @@
     color: white;
     letter-spacing: 1px;
     font-size: 30px;
-    margin-left:10%;
+    margin-left:7%;
     margin-top: 6%;
+}
+
+.SignUp-fourth-white{
+    color: white;
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin-left:0%;
 }

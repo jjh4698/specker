@@ -5,10 +5,10 @@
 */
 .geosuggest {
     font-size: 18px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     position: relative;
-    width: 50%;
-    margin: 1em auto;
+    width: 40%;
+    margin: 0px;
     text-align: left;
 }
 .geosuggest__input {
@@ -52,7 +52,7 @@
  */
 .geosuggest__item {
     font-size: 18px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: .5em .65em;
     cursor: pointer;
 }
