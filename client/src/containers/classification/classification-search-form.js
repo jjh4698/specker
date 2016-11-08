@@ -18,11 +18,11 @@ class ClassificationSearchForm extends Component{
         if(this.state.tags.length>2){
             return(
                 <a onClick={this.handleCompleteBtn.bind(this)
-                } className="classificationCompleteBtn">complete!</a>
+                } className="classificationCompleteBtn">NEXT</a>
             )
         }
         return(
-            <div className="classificationCompleteBtn"> 3개 이상 선택하세요.</div>
+            <div className="classificationCompleteBtn-false">NEXT</div>
         )
     }
     constructor(props){
