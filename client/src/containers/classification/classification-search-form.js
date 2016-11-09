@@ -17,12 +17,22 @@ class ClassificationSearchForm extends Component{
     renderCompleteBtn(){              //여기서 에러처리 ex. 10개 이상 선택
         if(this.state.tags.length>2){
             return(
-                <a onClick={this.handleCompleteBtn.bind(this)
-                } className="classificationCompleteBtn">NEXT</a>
+                <div>
+                    <a onClick={this.handleCompleteBtn.bind(this)
+                    } className="classificationCompleteBtn">NEXT</a>
+                    <div className="classification-arrow">
+                        <img src="../images/Next_Arrow_A.png"/>
+                    </div>
+                </div>
             )
         }
         return(
-            <div className="classificationCompleteBtn-false">NEXT</div>
+            <div className="row">
+                <div className="classificationCompleteBtn-false">NEXT</div>
+                <div className="classification-arrow">
+                    <img src="../images/Next_Arrow_UA.png"/>
+                </div>
+            </div>
         )
     }
     constructor(props){
@@ -159,7 +169,7 @@ class ClassificationSearchForm extends Component{
 
         return (
 
-            <div>
+            <div className="row">
                 <ReactTags tags={tags}
                            handleFilterSuggestions={this.handleFilterSuggestions.bind(this)}
                            suggestions={searchProcessedData}
