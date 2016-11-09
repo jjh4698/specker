@@ -9,12 +9,20 @@ class WizardFormFirstPage extends Component{
     render(){
         const {  label,handleSubmit ,invalid ,pristine, asyncValidating} = this.props;
         return(
+
+
             <form onSubmit={handleSubmit} className="SignUpBox">
                 <div className="SignUpLogo">
                     SIGN UP
                 </div>
                 <div className="SignUp-Line"></div>
-
+                <div className="pro-container row">
+                    <ul className="progressbar">
+                        <li className="active"></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
                 <div>
                     <label className="SignUp-white">이름</label>
                     <div className="SignUp-letter">
@@ -32,9 +40,10 @@ class WizardFormFirstPage extends Component{
                     <div className="SignUp-letter">
                         <Field name="passwordconfirm" type="password" className="SignUp-letter" component={renderField} label=""/>
                     </div>
-                    {invalid==true&&asyncValidating==false? <button type="button" disabled={pristine} className="next-button-false" >Next</button>  : <button type="submit" className="next-button-true" >Next</button>}
+                    {invalid==true&&asyncValidating==false? <div><button type="button" disabled={pristine} className="next-button-false" >Next</button><img src="../images/Next_Arrow_UA.png"/> </div>  : <div><button type="submit" className="next-button-true" >Next</button> <img src="../images/Next_Arrow_A.png"/> </div>}
                 </div>
             </form>
+
         );
     }
 }

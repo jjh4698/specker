@@ -23,13 +23,14 @@
 .SignUp-Input{
     width: 40%;
     line-height: 20px;
+    border-radius: 3px;
 }
 
 .SignUpBox{
     position: relative;
     width: 95% !important;
     height: 31% !important;
-    margin-top:15%;
+    margin-top:10%;
     margin-left: 35%;
 
 }
@@ -76,7 +77,7 @@
     padding: 5px;
     font-size: 15px;
     margin-left: 20%;
-    margin-top: 2%;
+    margin-top:2%;
     border-radius: 5px;
 }
 
@@ -88,6 +89,7 @@
     padding: 5px;
     font-size: 15px;
     margin-left: 20%;
+    margin-top:2%;
     border-radius: 5px;
 }
 
@@ -97,7 +99,14 @@
     font-size: 15px;
 }
 
-.SignUp-next-arrow{
+.SignUp-next-arrow1{
+    background-image: url('../images/Next_Arrow_UA.png');
+    width:20px;
+    height:40px;
+}
+
+
+.SignUp-next-arrow2{
     background-image: url('../images/Next_Arrow_A.png');
     width:20px;
     height:40px;
@@ -111,9 +120,9 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: url('../images/mail_icon.png');
-    width: 300px;
+    width: 34%;
     height: 150px;
-    margin-left : 5%;
+    margin-left : 2%;
 }
 
 
@@ -121,13 +130,13 @@
     color: white;
     letter-spacing: 1px;
     font-size: 30px;
-    margin-left:7%;
+    margin-left:3%;
     margin-top: 6%;
 }
 
 .SignUp-fourth-white{
     color: white;
     letter-spacing: 1px;
-    font-size: 30px;
-    margin-left:0%;
+    font-size: 15px;
+    margin-left:15%;
 }

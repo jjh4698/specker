@@ -81,6 +81,14 @@ class WizardFormSecondPage extends Component{
                     SIGN UP
                 </div>
                 <div className="SignUp-Line"></div>
+
+                <div className="pro-container row">
+                    <ul className="progressbar">
+                        <li className="active"></li>
+                        <li className="active"></li>
+                        <li></li>
+                    </ul>
+                </div>
                 <div>
                     <label className="SignUp-white">성별</label>
                     <div className="SignUp-letter">
@@ -107,7 +115,7 @@ class WizardFormSecondPage extends Component{
                         radius="20" />
                 </div>
 
-                {isAdressValid==false||invalid==true ? <button type="button" disabled={pristine} className="next-button-false" >Next</button>  : <button type="submit" className="next-button-true" >Next</button>}
+                {isAdressValid==false||invalid==true ?  <div><button type="button" disabled={pristine} className="next-button-false" >Next</button><img src="../images/Next_Arrow_UA.png"/> </div>  : <div><button type="submit" className="next-button-true" >Next</button> <img src="../images/Next_Arrow_A.png"/> </div>}
             </form>
         )
     }

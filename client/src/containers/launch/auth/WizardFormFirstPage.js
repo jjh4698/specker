@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import validate from './validate'
 import renderField from './renderField'
 import asyncValidate from './asyncValidate'
-
+import StepZilla from 'react-stepzilla'
 /*
 
  <div className="SignInBox">
@@ -39,13 +39,19 @@ import asyncValidate from './asyncValidate'
  */
 const WizardFormFirstPage = (props) => {
     const { handleSubmit ,invalid ,pristine, submitting, asyncValidating} = props;
+
     //console.log("hello", props);
     return (
+
             <form onSubmit={handleSubmit} className="SignUpBox">
                 <div className="SignUpLogo">
                     SIGN UP
                 </div>
                 <div className="SignUp-Line"></div>
+                        <div>
+                            asjdljsakldjalsldf;jl;sadgjlsag
+                        </div>
+
 
                 <div>
                     <label className="SignUp-white">이름</label>
@@ -67,9 +73,13 @@ const WizardFormFirstPage = (props) => {
 
 
                     {invalid==true&&asyncValidating==false? <button className="next-button-false" >Next</button>  : <button className="next-button-true" >Next</button>}
-                    <img src="../images/Next_Arrow_A.png"/>
+
+
                 </div>
+
+
             </form>
+
     )
 }
 
