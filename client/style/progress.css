@@ -1,5 +1,4 @@
 .pro-container{
-    margin-top:5%;
     width:100%;
     -webkit-transform: translate(-10%,0);
 }
@@ -11,7 +10,7 @@
 .progressbar li{
     list-style-type: none;
     float : left;
-    width: 19%;
+    width: 15%;
     text-align: center;
     z-index: 1;
     color: black;
@@ -21,14 +20,15 @@
     width:30px;
     height:30px;
     counter-increment: step;
-    border: 1px solid #ddd;
+    color: white;
     display: block;
     line-height: 30px;
     text-align: center;
     margin:  0 auto 10px auto;
     border-radius: 50%;
-    background-color: white;
     z-index: 1;
+    background-color: gray;
+
 }
 
 .progressbar li:after{
@@ -36,10 +36,12 @@
     width:19%;
     height: 2px;
     -webkit-transform: translate(-50%,0);
-    background-color: #ddd;
+    background-color: gray;
     top: 15px;
     position: fixed;
     z-index: -2;
+    height: 6.5px;
+    border-radius: 3px;
 }
 
 .progressbar li:first-child:after{
@@ -52,8 +54,12 @@
 .progressbar li.active:before{
     color: white;
     background-color: #00d6b2;
+    border: 1.9px solid gray;
 }
 
 .progressbar li.active:after{
     background-color: #00d6b2;
+    height: 6.5px;
+    border: 1.9px solid gray;
+    border-radius: 3px;
 }

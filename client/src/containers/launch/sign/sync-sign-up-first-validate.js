@@ -9,15 +9,15 @@ const validate = values => {
         console.log("2");
     }
     else if(!/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/.test(values.password)){
-        errors.password = '특수문자 1개이상 포함 6~20자리를 입력해주세요.';
+        errors.password = '*특수문자 1개이상 포함 6~20자리를 입력해주세요.';
         console.log("3");
     }
     if(!values.passwordconfirm){
-        errors.passwordconfirm="비밀번호확인을 입력하세요";
+        errors.passwordconfirm="비밀번호를 다시 입력하세요";
         console.log("4");
     }
     if(values.password!=values.passwordconfirm){
-        errors.passwordconfirm="비밀번호와 다릅니다.";
+        errors.passwordconfirm="비밀번호 불일치.";
         console.log("5");
     }
     // if (!values.firstName) {

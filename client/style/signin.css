@@ -4,22 +4,27 @@
     font-size: 20px;
     padding: 10px;
     color: #00d6b2;
+    background-color: lightgray;
     position: relative;
     margin-left: 28%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) !important;
 }
 
 .SignInBox{
     position: relative;
     width: 95% !important;
     height: 31% !important;
-    top:40%;
+    margin-top:25%;
+    margin-left: 35%;
+    z-index:3;
+
 }
 
 .SignInInput{
   text-align: center;
     margin-top: 5px;
     position: relative;
-    height: 50%;
+    height: 10%;
     padding: 10px;
     font-size: 20px;
 }
@@ -28,14 +33,16 @@
 
     background-color: #00d6b2;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 6%;
     position: relative;
-    width: 40%;
+    width: 30%;
     height: 50%;
     padding: 10px;
-    font-size: 20px;
+    font-size: 15px;
+    border:none;
     border-radius: 5px;
     color: ghostwhite;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .SignInForm{
@@ -44,8 +51,8 @@
 
 .SignInLogo{
     color: white;
-    font-size: 30px;
-    letter-spacing: 2px;
+    font-size: 20px;
+    letter-spacing: 1.3px;
     margin-left:10%;
 }
 .SignInLine{
@@ -56,5 +63,9 @@
 
 }
 
-
+.SignIn-screen{
+    width: 100%;
+    height: 100%
+;
+}
 

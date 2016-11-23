@@ -281,6 +281,7 @@ ul.dropdown-menu {
     font-size: 17px;
     position: fixed;
     border-bottom: solid #FFFFFF;
+
 }
 
 
@@ -292,25 +293,31 @@ ul.dropdown-menu {
    text-align: center;
     font-family:  helvetica, arial;
     color: #00d6b2;
-    font-size:12px;
-    font-weight: bold;
-    padding: 8px;
-    border-radius: 10px;
-    letter-spacing: 3px;
-    background-color: ghostwhite;
+    border:none;
+    font-size:10px;
+    padding-left : 13px;
+    padding-right : 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    background-color: #DCDCDC;
 
 }
 .launch-header-logo{
-    font-size: 27px;
+    padding-left: 5px;
+    padding-top: 8px;
+    font-size: 17px;
     color: white;
     letter-spacing: 2px;
-    font-family: Helvetica Neue, Helvetica, Arial;
+    font-family: Helvetica Neue, Helvetica;
 }
 .launch-header-line{
     background-color:white;
-    line-height: 2px;
-    border-top: solid #FFFFFF;
+    line-height: 1px;
+    border-top: 1px solid #FFFFFF;
     margin-top:40px;
+    opacity: 0.8;
 }
 
 .launch-header-btn{

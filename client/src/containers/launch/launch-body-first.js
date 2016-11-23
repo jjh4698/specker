@@ -27,13 +27,15 @@ class LaunchBodyFirst extends Component{
 
         else if(this.props.isEmailing){
             return(
-                <SignInAuthInvalid />
+
+                    <SignInAuthInvalid />
+
             );
         }
 
         else if(this.props.linkState==1){
             return(
-                <SignIn signinUser={this.props.signinUser} />
+                    <SignIn signinUser={this.props.signinUser} />
             );
         }
 

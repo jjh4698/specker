@@ -78,7 +78,7 @@ class WizardFormSecondPage extends Component{
         return (
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className="SignUpBox">
                 <div className="SignUpLogo">
-                    SIGN UP
+                    Sign up
                 </div>
                 <div className="SignUp-Line"></div>
 
@@ -91,16 +91,18 @@ class WizardFormSecondPage extends Component{
                 </div>
                 <div>
                     <label className="SignUp-white">성별</label>
-                    <div className="SignUp-letter">
-                        <label><Field name="sex" component="input" type="radio" value="male"/> Male</label>
-                        <label><Field name="sex" component="input" type="radio" value="female"/> Female</label>
+                    <div className="SignUp-Sex-White">
+                        <Field name="sex" component="input" type="radio" value="male">남자</Field>
+                        <Field name="sex" component="input" type="radio" value="female">여자</Field>
                         <Field name="sex" component={renderError}/>
                     </div>
+                    <label className="SignUp-white">나이</label>
                     <div className="SignUp-letter">
                         <Field name="age" type="text" component={renderField} label="나이" placeholder="ex)23"/>
                     </div>
+                    <label className="SignUp-white">주소</label>
                     <Geosuggest
-                        className="SignUp-letter"
+                        className="Geoguest-input"
                         placeholder="ex)마두동,신논현동,청담동"
                         initialValue={address.label}
                         onSuggestSelect={this.onSuggestSelect.bind(this)}

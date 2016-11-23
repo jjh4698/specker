@@ -25,23 +25,24 @@ class SignIn extends Component {
         const { handleSubmit} = this.props;
 
         return (
-            <div className="SignUpBox">
-                <div className="SignInLogo">Sign IN</div>
-                <div className="SignUp-Line"></div>
-                <form className="SignInForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-                    <label className="SignUp-white">이메일</label>
-                    <div className="SignUp-letter">
-                        <Field name="email" type="email" className="SignInInput" component={renderField} label="이메일"/>
-                    </div>
-                    <label className="SignUp-white">비밀번호</label>
-                    <div className="SignUp-letter">
-                        <Field name="password" type="password" className="SignInPass" component={renderField} label="비밀번호"/>
-                    {this.renderAlert()}
+
+                    <div className="SignInBox">
+                        <div className="SignInLogo">Sign in</div>
+                        <div className="SignUp-Line"></div>
+
+                        <form className="SignInForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                            <div className="SignUp-letter">
+                                <Field name="email" type="email" className="SignInInput" component={renderField} label="이메일"/>
+                            </div>
+                            <div className="SignUp-letter">
+                                <Field name="password" type="password" className="SignInPass" component={renderField} label="비밀번호"/>
+                            {this.renderAlert()}
+                            </div>
+
+                        <button type="submit" className="SignInSubmitButton">Sign in</button>
+                    </form>
                     </div>
 
-                <button type="submit" className="SignInSubmitButton">Sign in</button>
-            </form>
-            </div>
         );
     }
 }

@@ -75,10 +75,10 @@
     position: absolute;
     background-color: lightseagreen;
     /* width: 80% !important; */
-    top:92%;
+    top:90%;
     left: 70%;
     padding: 13px;
-    font-size: 17px;
+    font-size: 14px;
     color:white;
     border-radius: 5px;
     /*z-index: -1;*/
@@ -99,7 +99,7 @@
     background-color: gray;
     color: white;
     padding: 13px;
-    font-size: 17px;
+    font-size: 14px;
     /*z-index: -1;*/
     cursor:pointer;
     text-decoration: none !important;

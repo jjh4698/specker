@@ -19,7 +19,7 @@ class WizardFormThirdPage extends Component{
         return(
             <form className="SignUpBox">
                 <div className="SignUpLogo">
-                    SIGN UP
+                    Sign up
                 </div>
                 <div className="SignUp-Line"></div>
                 <div className="pro-container row">
@@ -33,11 +33,13 @@ class WizardFormThirdPage extends Component{
                 <div className="SignUp-mail-image">
                 </div>
                 <div className="SignUp-third-white">
-                    <img src="../images/confirmed_check.png"/>인증메일 전송 완료
+                    <span className="SignUp-display"><div className="Confirm-check-image"/>인증메일 전송 완료</span>
                 </div>
+
                 <div className="SignUp-white">
-                    {localStorage.getItem('name')}님께서 입력하신 {localStorage.getItem('email')}으로 메일 전송을 완료했습니다.
+                    <span className="SignUp-display">입력하신<div className="SignUp-mail">{localStorage.getItem('email')}</div>으로 메일 전송을 완료했습니다.</span>
                 </div>
+
                 <div className="SignUp-fourth-white">
                     확인해주세요.
                 </div>

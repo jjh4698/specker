@@ -13,7 +13,7 @@ class WizardFormFirstPage extends Component{
 
             <form onSubmit={handleSubmit} className="SignUpBox">
                 <div className="SignUpLogo">
-                    SIGN UP
+                    Sign up
                 </div>
                 <div className="SignUp-Line"></div>
                 <div className="pro-container row">
