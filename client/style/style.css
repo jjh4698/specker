@@ -301,8 +301,8 @@ ul.dropdown-menu {
     padding-top: 5px;
     border-radius: 3px;
     letter-spacing: 0.5px;
-    background-color: #DCDCDC;
-
+    background-color: #eee;
+    float:right;
 }
 .launch-header-logo{
     padding-left: 5px;
