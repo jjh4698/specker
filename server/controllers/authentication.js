@@ -2,6 +2,8 @@ const User = require('../models/user');
 const jwt = require('jwt-simple');
 const config = require('../config');
 var nodemailer = require('nodemailer');
+var async = require("async");
+var gravatar = require("gravatar");
 // create reusable transporter object using the default SMTP transport
 var smtpConfig = {
     host: 'smtp.gmail.com',
@@ -14,9 +16,6 @@ var smtpConfig = {
 };
 var transporter = nodemailer.createTransport(smtpConfig);
 // setup e-mail data with unicode symbols
-
-var siteUrl = "http://127.0.0.1:8080";
-
 
 
 
@@ -41,7 +40,6 @@ exports.isEmailExisted = function(req, res, next){
 };
 
 exports.signin = function(req, res, next){
-    console.log("check1",req.body);
     User.findOne({ "public.email": req.body.email }, function(err, existingUser){
         if(existingUser.private.isValid=="invalid"){
             res.send({userStatus:"SIGN_UP_INCOMPLETE_USER"});
@@ -51,7 +49,11 @@ exports.signin = function(req, res, next){
         }
         else{
             res.send({token: tokenForUser(existingUser), userStatus:"AUTH_USER" });
+
         }
+        console.log("signin");
+
+
     });
 
 };
@@ -64,7 +66,6 @@ exports.signup = function(req, res, next){
     const sex = req.body.sex;
     const name = req.body.name;
 
-    console.log(req.body);
 
     User.findOne({ "public.email": email }, function(err, existingUser){
         if(err){
@@ -72,9 +73,13 @@ exports.signup = function(req, res, next){
         }
 
         if(existingUser){
-            console.log("이미 존재하는 유저입니다.");
             return res.status(422).send({ error: 'Email is in use' });
         }
+
+        var getGravatar = gravatar.url(email, {
+            s: 80,
+            d: 'retro'
+        });
 
         const user = new User();
         user.public.email = email;
@@ -86,6 +91,7 @@ exports.signup = function(req, res, next){
         user.public.address.location.lat = req.body.address.lat;
         user.public.address.location.lng = req.body.address.lng;
         user.private.password = password;
+        user.public.gravatar = 'http:'+getGravatar;
         user.save(function(err){
             if(err){
                 return next(err);
@@ -96,9 +102,8 @@ exports.signup = function(req, res, next){
                 to: email,
                 subject: 'specker 회원가입 확인 메일입니다.',
                 // text: name+'님의 회원가입을 축하합니다. 귀하의 건승을 기원합니다. ',
-                html:'<h1>'+name+"님의 회원가입을 축하합니다. 룹과 귀하의 건승을 기원합니다."+' </h1><p>인증 하실려면 <a href='+siteUrl+"/signUpConfirm?token="+tokenForUser(user)+'>여기</a>를 클릭하세요.</p>'
+                html:'<h1>'+name+"님의 회원가입을 축하합니다. 룹과 귀하의 건승을 기원합니다."+tokenForUser(user)+' </h1><p>인증 하실려면 <a href="http://127.0.0.1:8080/signUpConfirm?token='+tokenForUser(user)+'">여기</a>를 클릭하세요.</p>'
             };
-
 
 
             transporter.sendMail(mailOptions, function(error, response){
@@ -126,32 +131,5 @@ exports.signUpConfirm = function(req, res, next){
         res.json({ token:tokenForUser(user), userStatus:"TAG_INCOMPLETE_USER" });
     });
 
-
-
-
 };
-// };
-//
-// exports.isEmailExisted = function(req, res, next){
-//     const email = req.body.email;
-//     console.log("sdsd",req.body);
-//     console.log("sdsdsdsds",req.body.email);
-//
-//
-//     if(!email){
-//         return res.status(422).send({error: 'Email please!'});
-//     }
-//     User.findOne({ "public.email": email }, function(err, existingUser) {
-//
-//         if (err) {
-//             console.log("이미 존재하는 유저입니다3.");
-//             return next(err);
-//         }
-//
-//         if (existingUser) {
-//             console.log("이미 존재하는 유저입니다.");
-//             return res.send({error: 'Email is in use'});
-//         }
-//         console.log("이미 존재하는 유저입니다2.");
-//         return res.send(200);
-//     })
+// sign up 다음에 수행 된다고 가정, req.user에 해당 유저의 정보가 들어있다.

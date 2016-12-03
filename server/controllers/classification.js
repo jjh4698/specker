@@ -49,7 +49,6 @@ exports.getClassification = function(req, res, next){
 exports.saveClassification = function(req, res, next){
     var token = req.body.token;
     var decoded = jwt.decode(token, config.secret);
-    console.log("here???");
 
     var objectId = mongoose.Types.ObjectId(decoded.sub);
 

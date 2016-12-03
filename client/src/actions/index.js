@@ -1,12 +1,17 @@
 import { LAUNCH_PAGE_STATE, LAUNCH_LINK_STATE, AUTH_ERROR, AUTH_USER, UN_AUTH_USER,
     SAVE_CLASSIFICATION_TAG_DATA,SIGN_UP_INCOMPLETE_USER, GET_CLASSIFICATION_TAG_DATA, TAG_INCOMPLETE_USER, SIDE_BAR_STATE, SINE_UP_STATE
 } from './types';
+
+import { SERVER_URL } from '../../config';
+
+
 import axios from 'axios';
 import { browserHistory } from 'react-router';
+import 'whatwg-fetch'
+var qs = require('qs');
+var HTML = require('html-parse-stringify');
 
-const ROOT_URL = 'http://127.0.0.1:3000';
 
-// const ROOT_URL = 'http://1.236.126.73:3000';
 
 export function launchUpdatePageState(pageState){
     return function(dispatch){
@@ -40,7 +45,7 @@ export function launchUpdateLinkState(linkState){
 export function signinUser(email, password ) {
     return function(dispatch) {
         // Submit email/password to the server
-        axios.post(`${ROOT_URL}/signin`, { email, password })
+        axios.post(`${SERVER_URL}/signin`, { email, password })
             .then(response => {
                 console.log("nb2",response);
                 var userStatus = response.data.userStatus;
@@ -75,7 +80,7 @@ export function signinUser(email, password ) {
 
 export function signupUser(value) {
     return function(dispatch) {
-        axios.post(`${ROOT_URL}/signup`, value)
+        axios.post(`${SERVER_URL}/signup`, value)
             .then(response => {
                 console.log("haha",response.data);
                 localStorage.setItem('name', response.data.name);
@@ -104,9 +109,7 @@ export function signoutUser() {
 
 export function getClassificationTagData(keyword, callback) {
     return function (dispatch) {
-        console.log("yuri",localStorage.getItem('token') );
-
-        axios.post(`${ROOT_URL}/getClassification`,{keyword:keyword}, {
+        axios.post(`${SERVER_URL}/getClassification`,{keyword:keyword}, {
             headers: {
                 authorization: localStorage.getItem('token'),
                 'Content-Type': 'application/json'
@@ -132,8 +135,7 @@ export function saveClassificationSearchData(tags) {
         for(var tag in tags){
             tagNames.push(tags[tag].text);
         }
-            console.log("bb", localStorage.getItem('token'));
-        axios.post(`${ROOT_URL}/saveClassification`, { tag:tagNames, token: localStorage.getItem('token')},{
+        axios.post(`${SERVER_URL}/saveClassification`, { tag:tagNames, token: localStorage.getItem('token')},{
             headers: { 'authorization': localStorage.getItem('token'),
                         'Content-Type': 'application/json'}
         })
@@ -173,7 +175,7 @@ export function changeSidebarState(state) {
 export function signUpAuth(token){
 
     return function(dispatch) {
-        axios.post(`${ROOT_URL}/signUpConfirm`,null, {
+        axios.post(`${SERVER_URL}/signUpConfirm`,null, {
             headers: {
                 authorization: token,
                 'Content-Type': 'application/json'
@@ -196,4 +198,27 @@ export function signUpAuth(token){
 }
 
 
+export function saveFeed(html) {
+    return function(dispatch) {
+        var paramHTML  = html.innerHTML;
+        console.log(paramHTML);
+        var ast = HTML.parse(paramHTML);
+        console.log(ast);
 
+        axios.post(`${SERVER_URL}/saveFeed`, {html:ast},{
+            headers: {
+                'authorization': localStorage.getItem('token'),
+                'Content-Type': 'application/json; charset=UTF-8'
+            }
+        })
+            .then(response => {
+                // dispatch({ type: AUTH_USER });
+
+                browserHistory.push('/home');
+
+            })
+            .catch(response => {
+
+            });
+    }
+}

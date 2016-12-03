@@ -91,7 +91,7 @@ class NewsfeedBody extends Component {
                       onOut={card => card.setLevel(1)}
                       key={i}>
                     <a href={track.permalink_url} target="_blank">
-                        <img width="100%" height="auto" src={track.artwork_url}  />
+                        <h1>제목{i}</h1>
                         <p className="title">{track.title}</p>
                     </a>
                 </Card>

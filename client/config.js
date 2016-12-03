@@ -1,0 +1,8 @@
+const PROD_SERVER_URL = 'http://211.202.243.66:3000';
+const DEV_SERVER_URL = 'http://127.0.0.1:3000';
+
+const PROD_UTIL_SERVER_URL = 'http://211.202.243.66:8000';
+const DEV_UTIL_SERVER_URL = 'http://127.0.0.1:8000';
+
+export const SERVER_URL = DEV_SERVER_URL;
+export const UTIL_SERVER_URL = PROD_UTIL_SERVER_URL;

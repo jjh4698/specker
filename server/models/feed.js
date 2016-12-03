@@ -21,6 +21,7 @@ var feedSchema= new Schema({
 
     date:{type:Date, default:Date.now},
     tag:[{type:Schema.ObjectId}],
+    mention:[{type:Schema.ObjectId}],
     content:String,
     comment:[{type:Schema.ObjectId}]
 });
