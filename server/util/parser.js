@@ -105,9 +105,15 @@ function resultTag(tag){
 function addTag(firstTag, secondTag, userId){
     if(firstTag.name=='img')
         return `${imgTag(firstTag, userId)}${secondTag.content}`;
-    if(secondTag.name=='img')
+    else if(secondTag.name=='img')
         return `${firstTag.content}${imgTag(secondTag, userId)}`;
 
+    else if(firstTag.content=='@'){
+        return `<span class="mention">@${secondTag.content.replace(/(<([^>]+)>)/ig,'')}</span>`
+    }
+    else if(firstTag.content=='#'){
+        return `<span class="tag">#${secondTag.content.replace(/(<([^>]+)>)/ig,'')}</span>`
+    }
     return `${firstTag.content}${secondTag.content}`;
 }
 
@@ -133,8 +139,8 @@ function includeTag(childTag,parentTag, userId){       //child==first
 
     switch (statusFlag){
         case PERSON_MENTION: case TAG_MENTION:
-            result= `${childHtml}`;
-            break;
+        result= `${childHtml}`;
+        break;
         case URL:
             var regexHttp = /^((http(s?))\:\/\/)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/;
             if(!regexHttp.test(childHtml))
@@ -235,12 +241,21 @@ exports.parser = function(dom, userId, callback){
                                 case '+':
                                     var first = tag_stack.pop();
                                     var second = tag_stack.pop();
+
                                     var $html =addTag(first,second, userId);
                                     tag_stack.push({'name': 'result', 'content': $html});
                                     break;
                                 case '(':
                                     var child = tag_stack.pop();
                                     var parent = tag_stack.pop();
+                                    if(parent.hasOwnProperty('attrs')&&parent.attrs.hasOwnProperty('target')){
+                                        if(child.content.replace(/(<([^>]+)>)/ig,'').indexOf('@')==0){
+                                            result.mention.push(parent.attrs.target);
+                                        }
+                                        else if(child.content.replace(/(<([^>]+)>)/ig,'').indexOf('#')==0){
+                                            result.tag.push(parent.attrs.target);
+                                        }
+                                    }
                                     var $html = includeTag(child, parent, userId);
                                     tag_stack.push({'name': 'result', 'content': $html});
                                     key=false;
@@ -269,11 +284,14 @@ exports.parser = function(dom, userId, callback){
                 return err ;
             }
             result.content = pretty(tag_stack.pop().content.toString());
-            // console.log(result.content);
+            result.mention = Array.from(new Set(result.mention));
+            result.tag = Array.from(new Set(result.tag));
+            console.log(result.content);
+            console.log(result.mention);
+            console.log(result.tag);
             callback(result);
         }
     );
 
 
 };
-

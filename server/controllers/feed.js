@@ -1,4 +1,3 @@
-
 const jwt = require('jwt-simple');
 const config = require('../config');
 var mongoose = require('mongoose');
@@ -18,7 +17,7 @@ const User = require('../models/user');
 
 
 /*
- import 명령어: mongoimport --db specker --collection specs --file init_spec.json
+ import 명령어: mongoimport —db specker —collection specs —file init_spec.json
  export 명령어: mongoexport -d specker -c specs -o init_spec.json
  */
 
@@ -28,14 +27,14 @@ const User = require('../models/user');
 exports.saveFeed = function(req, res, next){
 
     async.waterfall([
-        function(callback){
-            var $html =req.body.html;
-            Parser.parser($html[0].children, req.user._id, function(result){
-                callback(null, result);
-            });
+            function(callback){
+                var $html =req.body.html;
+                Parser.parser($html[0].children, req.user._id, function(result){
+                    callback(null, result);
+                });
 
-        }
-    ],
+            }
+        ],
         function(err, result){
             const feed = new Feed();
             feed.user = req.user._id;

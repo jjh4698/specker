@@ -517,18 +517,7 @@ body {
 }
 
 
-.homeSidebar{
-    float: right;
-    position: fixed;
-    padding-top: 10% !important;
-    width:20% !important;
-    right:0;
-    /*height:100%;*/
-}
 
-.posterRecommanded{
-
-}
 
 
 

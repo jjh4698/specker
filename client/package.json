@@ -35,6 +35,7 @@
     "draft-js-mention-plugin": "^2.0.0-beta5",
     "draft-js-plugins-editor": "^2.0.0-beta5",
     "google-map-react": "^0.20.0",
+    "html-react-parser": "^0.3.0",
     "immutable": "^3.8.1",
     "lodash": "^3.10.1",
     "multi-slider": "^3.0.0",

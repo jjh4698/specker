@@ -25,8 +25,8 @@ module.exports = function(app, io) {
     app.post('/signUpConfirm', requireAuth, Authentication.signUpConfirm);
     app.post('/isEmailExisted', Authentication.isEmailExisted );
     app.post('/getClassification', requireAuth, Classification.getClassification);
-
-
+    app.post('/recommandTeam',requireAuth,Recommand.findTeam);
+    app.post('/recommandFoster',requireAuth,Recommand.find_Foster);
     app.post('/saveClassification', requireAuth, Classification.saveClassification);
     app.post('/saveFeed',requireAuth, Feed.saveFeed);
     app.post('/isEmailExisted',Authentication.isEmailExisted);

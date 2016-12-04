@@ -1,0 +1,42 @@
+
+
+.home-sidebar-box{
+    margin-left : 50%;
+    position: fixed;
+    padding-top: 10% !important;
+    width:30% !important;
+    right:0;
+}
+
+
+.home-sidebar-line{
+    border-top: solid  gray;
+    color : black;
+    width: 60%;
+    opacity: 0.8;
+}
+
+.home-foster-box{
+    width: 100%;
+    height: auto;
+}
+
+.home-foster-box .main-name{
+    font-family : Helvetica;
+    font-size : 10px;
+    color : darkslategrey;
+    font-weight: bold;
+}
+
+.home-foster-box .sub-name {
+    font-family: Helvetica;
+    font-size : 10px;
+    color : gray;
+}
+
+.home-foster-box .lines{
+    width:60%;
+    border-top: solid  gray;
+    color : gray;
+    opacity: 0.3;
+}

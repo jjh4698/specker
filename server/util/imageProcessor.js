@@ -21,11 +21,11 @@ exports.imageSaver = function(file, path){
                 });
 
             },
-        function(result, callback){
-            require("fs").writeFile(filePath, file, 'base64', function(err) {
-                callback(null,null);
-            });
-        }
+            function(result, callback){
+                require("fs").writeFile(filePath, file, 'base64', function(err) {
+                    callback(null,null);
+                });
+            }
         ],
         function(err, result){
             console.log(err);
